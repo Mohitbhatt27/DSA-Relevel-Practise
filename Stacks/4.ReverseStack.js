@@ -9,19 +9,14 @@ function insertAtBottom(st, elem) {
 }
 
 
-function reverse(st) {
-  /**
-   * Time: O(n^2)
-   * Space: O(n)
-   */
-
-  //base case
-  if (st.length == 0) {
+function reverse(stack) {
+  if (stack.length == 0) {
     return;
   }
 
-  let top = st[st.length-1]; //store the top
-  st.pop(); //remove the top
-  reverse(st); // recursively anyhow reverse the remaining stack
-  insertAtBottom(st, top);
+  let curr_top = stack[stack.length-1]; //store the top
+  stack.pop(); //remove the top
+  reverse(stack); // assume recursion reverses the rest of stack
+  insertAtBottom(stack, curr_top);
+  
 }

@@ -14,10 +14,9 @@ function reverse(head){
 
 /**
  * Working --->
- * Reverse function is called with every elem except one, we assume that this will do everything for us and it gives us the last elem of og, meaning our new head of ans, which we will return eventually
+ * Reverse function is called with every elem except one, we assume that this will do everything for us and it gives us the last elem of original liked list, meaning our new head of ans, which we will return eventually
  * 
- * Then we just need to break the bond between og 1st and 2nd elem
- * So we store Og 2nd elem, and then do the rest
- * 
+ * Then we just need to break the bond between original 1st and 2nd elem
+ * So we store Original 2nd elem, and then do the rest
  * 
  */

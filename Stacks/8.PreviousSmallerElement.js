@@ -1,19 +1,21 @@
-function prevSmallerElem(nums) {
+function Pse(nums) {
+  nums.reverse();
   let stack = [];
   let result = Array(nums.length).fill(-1);
+  stack.push(0);
 
-  for (let i = 0; i < nums.length; i++) {
-    while (stack.length > 0 && nums[i] <= nums[stack[stack.length - 1]]) {
-      stack.pop();
-      //  pop elements from the top of the stack if they are greater than or equal to the current element of the input array. We are interested in finding the previous smaller element for each element in the input array.
+  for (let i = 1; i < nums.length; i++) {
+    let next = nums[i];
+    //only change from nge is the < sign instead of >
+    while (stack.length > 0 && next < nums[stack[stack.length - 1]]) {
+      let topIndex = stack.pop();
+
+      result[topIndex] = next;
     }
 
-    if (stack.length > 0) {
-      //  If the stack is not empty, assign the top element of the stack as the previous smaller element for the current element of the input array.
-      result[i] = nums[stack[stack.length - 1]]; // just remove nums if you want to return indices
-    }
     stack.push(i);
   }
-
-  return result;
+  return result.reverse();
 }
+
+console.log(Pse([10, 7, 4, 2, 9, 10, 11, 3, 2]));

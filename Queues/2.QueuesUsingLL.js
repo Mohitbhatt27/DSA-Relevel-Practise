@@ -24,11 +24,11 @@ class Queue {
 
 
   dequeue() {
-    if ((this.head = null)) return;
+    if ((this.head == null)) return;
     let nextNode = this.head.next;
     this.head.next = null;
     this.head = nextNode;
-    if ((this.head = null)) {
+    if ((this.head == null)) {
       this.tail = null;
     }
   }
@@ -48,4 +48,7 @@ let q = new Queue();
 q.enqueue(10);
 q.enqueue(20);
 q.enqueue(30);
+q.enqueue(50);
+q.enqueue(80);
+//q.dequeue();
 console.log(q.getfront(), q.getback());

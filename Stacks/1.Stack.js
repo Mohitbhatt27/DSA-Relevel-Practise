@@ -14,7 +14,7 @@ class Stack {
     return this.#arr[this.#arr.length - 1];
   }
 }
-const st = new Stack();
+let st = new Stack();
 st.push(10);
 st.push(20);
 console.log(st.top());

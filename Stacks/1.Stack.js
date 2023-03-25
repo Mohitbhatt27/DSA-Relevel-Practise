@@ -9,6 +9,9 @@ class Stack {
   pop() {
     this.#arr.pop();
   }
+  isEmpty() {
+    return this.#arr.length == 0;
+  }
   top() {
     if ((this.#arr.length == 0)) return undefined;
     return this.#arr[this.#arr.length - 1];

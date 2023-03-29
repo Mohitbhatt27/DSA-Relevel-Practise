@@ -6,7 +6,7 @@ var removeNthFromEnd = function (head, n) {
   let dummy = new ListNode(0); //dummy node whose next points to head
   dummy.next = head;
   //By creating the temp node and linking it to the original list's head node, it makes it easier to handle cases where the first node needs to be removed.
-  // set variables for next node and current node
+  
   let slow = dummy;
   let fast = dummy;
   // set fast to n nodes ahead of slow
@@ -15,7 +15,7 @@ var removeNthFromEnd = function (head, n) {
   }
   // While we haven't reached the end of the list
   // set slow to n nodes behind fast
-  while (fast.next!=null) {
+  while (fast.next) {
     slow = slow.next;
     fast = fast.next;
   }

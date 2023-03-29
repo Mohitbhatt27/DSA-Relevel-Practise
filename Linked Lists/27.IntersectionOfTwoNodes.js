@@ -2,21 +2,21 @@ var getIntersectionNode = function (headA, headB) {
   if (!headA || !headB) {
     return null;
   }
-  let first = headA;
-  let second = headB;
-  while (first != second) {
-    if (first == null) {
-      first = headB;
+  let i = headA;
+  let j = headB;
+  while (i != j) {
+    if (i == null) {
+      i = headB;
     } else {
-      first = first.next;
+      i = i.next;
     }
 
-    if (second == null) {
-      second = headA;
+    if (j == null) {
+      j = headA;
     } else {
-      second = second.next;
+      j = j.next;
     }
   }
 
-  return first;
+  return i;
 };

@@ -1,12 +1,12 @@
-function dfs_pre(node) {
+function dfs(node) {
   if (!node) {
     return;
   }
 
   console.log(node.val);
 
-  dfs_pre(node.left);
-  dfs_pre(node.right);
+  dfs(node.left);
+  dfs(node.right);
 }
 
-dfs_pre(root); 
+dfs(root);

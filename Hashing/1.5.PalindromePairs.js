@@ -15,48 +15,100 @@
 // Output: [[0,1],[1,0],[3,2],[2,4]]
 // Explanation: The palindromes are ["abcddcba","dcbaabcd","slls","llssssll"]
 
-function isPalindrome(str) {
-  return str === str.split('').reverse().join('');
-}
+// function isPalindrome(str) {
+//   return str === str.split('').reverse().join('');
+// }
 
-var palindromePairs = function (words) {
-  let result = [];
-  let mp = {};
+// var palindromePairs = function (words) {
+//   let result = [];
+//   let mp = {};
+//   for (let i = 0; i < words.length; i++) {
+//     mp[words[i]] = i;
+//   }  
+//   for (let i = 0; i < words.length; i++) {
+//     for (let j = 0; j <= words[i].length; j++) {
+//       //let str1 = words[i].substring(0, j); // str1 -> substring from 0 to j
+//       let str1 = words[i].slice(0, j); // str1 -> substring from 0 to j
+//       let str2 = words[i].slice(j); // str2 -> substring from j to end
+//      //let str2 = words[i].substring(j); // str2 -> substring from j to end
 
-  for (let i = 0; i < words.length; i++) {
-    mp[words[i]] = i; // mp contains the index of each word, and words are unique as mentioned
+//       // if str1 is a palindrome, find the reverse of str2 in the map
+//       if (isPalindrome(str1)) {
+//         let str2_rev = str2.split('').reverse().join('');
+//         if (mp[str2_rev] != undefined && mp[str2_rev] != i) {
+//             // if the reverse of str2 is present in the map, and it is not the same word, then we have found a palindrome pair
+//           result.push([mp[str2_rev], i]);
+//         }
+//       }
+
+//       // if str2 is a palindrome, then we can find the reverse of str1 in the map
+//       if (isPalindrome(str2) && str2.length != 0) {
+//         let str1_rev = str1.split('').reverse().join('');
+//         if (mp[str1_rev] != undefined && mp[str1_rev] != i) {
+//             // if the reverse of str1 is present in the map, and it is not the same word, then we have found a palindrome pair
+//           result.push([i, mp[str1_rev]]);
+//         }
+//       }
+//     }
+//   }
+//   return result;
+// };
+
+
+// // function isPalindrome(str) {
+// //   return str === str.split('').reverse().join('');
+// // }
+
+// // var palindromePairs = function (words) {
+// //   let result = [];
+// //   let mp = new Map(); // use Map instead of plain object
+// //   for (let i = 0; i < words.length; i++) {
+// //     mp.set(words[i], i); // use set() instead of direct assignment
+// //   }
+// //   for (let i = 0; i < words.length; i++) {
+// //     for (let j = 0; j <= words[i].length; j++) {
+// //       let str1 = words[i].slice(0, j);
+// //       let str2 = words[i].slice(j);
+
+// //       if (isPalindrome(str1)) {
+// //         let str2_rev = str2.split('').reverse().join('');
+// //         if (mp.has(str2_rev) && mp.get(str2_rev) !== i) {
+// //           result.push([mp.get(str2_rev), i]);
+// //         }
+// //       }
+
+// //       if (isPalindrome(str2) && str2.length !== 0) {
+// //         let str1_rev = str1.split('').reverse().join('');
+// //         if (mp.has(str1_rev) && mp.get(str1_rev) !== i) {
+// //           result.push([i, mp.get(str1_rev)]);
+// //         }
+// //       }
+// //     }
+// //   }
+// //   return result;
+// // };
+
+var isValidPalindome = function (s) {
+  let i = 0;
+  let j = s.length - 1;
+  while (i < j) {
+    if (s[i] != s[j]) return false;
+    i++;
+    j--;
   }
-
-  // if the word is empty, then we can find all the palindromes in the words array
-  for (let i = 0; i < words.length; i++) {
-    for (let j = 0; j <= words[i].length; j++) {
-      let str1 = words[i].substring(0, j); // str1 is the substring from 0 to j
-      let str2 = words[i].substring(j); // str2 is the substring from j to end
-
-      // if str1 is a palindrome, then we can find the reverse of str2 in the map
-      if (isPalindrome(str1)) {
-        let str2_rev = str2.split('').reverse().join('');
-        if (mp[str2_rev] != undefined && mp[str2_rev] != i) {
-            // if the reverse of str2 is present in the map, and it is not the same word, then we have found a palindrome pair
-            // we push the index of the current word and the index of the reverse of str2
-          result.push([mp[str2_rev], i]);
-        }
-      }
-
-      // if str2 is a palindrome, then we can find the reverse of str1 in the map
-      if (isPalindrome(str2) && str2.length != 0) {
-        let str1_rev = str1.split('').reverse().join('');
-        if (mp[str1_rev] != undefined && mp[str1_rev] != i) {
-            // if the reverse of str1 is present in the map, and it is not the same word, then we have found a palindrome pair
-            // we push the index of the current word and the index of the reverse of str1
-          result.push([i, mp[str1_rev]]);
-        }
-      }
+  return true;
+};
+var palindromePairs = function (words) {
+  let n = words.length;
+  const result = [];
+  for (let i = 0; i < n - 1; i++) {
+    for (let j = i + 1; j < n; j++) {
+      if (isValidPalindome(words[i] + words[j])) result.push([i, j]);
+      if (isValidPalindome(words[j] + words[i])) result.push([j, i]);
     }
   }
   return result;
 };
-
 
 
 console.log(

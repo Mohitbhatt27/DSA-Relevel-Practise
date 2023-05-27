@@ -1,15 +1,15 @@
 process.stdin.resume();
-process.stdin.setEncoding("utf-8");
+process.stdin.setEncoding('utf-8');
 
-let inputString = "";
+let inputString = '';
 let currentLine = 0;
 
-process.stdin.on("data", function (inputStdin) {
+process.stdin.on('data', function (inputStdin) {
   inputString += inputStdin;
 });
 
-process.stdin.on("end", function () {
-  inputString = inputString.split("\n");
+process.stdin.on('end', function () {
+  inputString = inputString.split('\n');
   // press ctrl+d in the terminal and then your main function will be executed automatically
   main();
 });
@@ -20,7 +20,7 @@ function readLine() {
 
 function readNumberArray() {
   let input = readLine(); // 1 2 3 4 5
-  input = input.split(" "); // ['1', '2', '3', '4', '5']
+  input = input.split(' '); // ['1', '2', '3', '4', '5']
   input = input.map((value) => Number(value)); // [1,2,3,4,5]
   return input;
 }
@@ -35,7 +35,7 @@ function readNumberArrayByLine(noOfLines) {
 
 function readStringArray() {
   let input = readLine();
-  return input.split(" ");
+  return input.split(' ');
 }
 
 function readNumber() {
@@ -44,7 +44,7 @@ function readNumber() {
 
 function readPairOfNumbers() {
   let input = readLine();
-  input = input.split(" ").map((value) => Number(value));
+  input = input.split(' ').map((value) => Number(value));
   return input;
 }
 
@@ -60,11 +60,4 @@ function main() {
     y = Number(y);
     console.log(x + y);
   }
-  // let n = readNumber();
-  // let x = readNumberArrayByLine(n);
-  // let sum = 0;
-  // for (let i = 0; i < x.length; i++) {
-  //   sum += x[i];
-  // }
-  // console.log(sum);
 }

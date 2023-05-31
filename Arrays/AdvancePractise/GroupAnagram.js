@@ -27,21 +27,18 @@
 // };
 // console.log(groupAnagrams(["eat","tea","tan","ate","nat","bat"]));
 
-
-var groupAnagrams = function(strs){
-    let obj={};
-    for(let i=0; i<strs.length; i++){
-        let current=strs[i].split('').sort().join('');
-        if(obj[current]){
-            obj[current].push(strs[i]);
-        }
-        else{
-            obj[current]=[strs[i]];
-        }
+var groupAnagrams = function (strs) {
+  let obj = {};
+  for (let i = 0; i < strs.length; i++) {
+    let current = strs[i].split('').sort().join('');
+    if (obj[current]) {
+      obj[current].push(strs[i]);
+    } else {
+      obj[current] = [strs[i]];
     }
-    let ans=[];
-    ans.push(Object.values(obj));
-    return ans;
-
+  }
+  let ans = [];
+  ans.push(Object.values(obj));
+  return ans;
 };
-console.log(groupAnagrams(["eat","tea","tan","ate","nat","bat"]));
+console.log(groupAnagrams(['eat', 'tea', 'tan', 'ate', 'nat', 'bat']));

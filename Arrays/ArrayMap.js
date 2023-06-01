@@ -13,22 +13,22 @@ When to use map? In any situation when we have to do an operation on every eleme
 */
 
 function square(el) {
-    return el*el; // returns square
+  return el * el; // returns square
 }
 
 function cube(x) {
-    return x*x*x;
+  return x * x * x;
 }
 
 function isEvenOrOdd(x) {
-    if(x % 2 == 0) {
-        return "Even";
-    } else {
-        return "Odd";
-    }
+  if (x % 2 == 0) {
+    return 'Even';
+  } else {
+    return 'Odd';
+  }
 }
 
-const arr = [1,2,3,4,5]; // original array
+const arr = [1, 2, 3, 4, 5]; // original array
 
 const result = arr.map(square); // square is function passed as an argument
 console.log(result);

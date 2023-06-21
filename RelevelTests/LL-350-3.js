@@ -49,6 +49,3 @@ var specialPerm = function (nums) {
   dp = Array.from({ length: 20 }, () => Array((1 << 14) + 5).fill(-1));
   return solve(nums, -1, 0, 0);
 };
-
-
-
